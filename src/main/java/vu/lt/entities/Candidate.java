@@ -10,11 +10,11 @@ import java.util.Objects;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Player.findAll", query = "select a from Player as a")
+        @NamedQuery(name = "Player.findAll", query = "select a from Candidate as a")
 })
-@Table(name = "PLAYER")
+@Table(name = "Candidate")
 @Getter @Setter
-public class Player implements Serializable {
+public class Candidate implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,14 +28,14 @@ public class Player implements Serializable {
     @JoinColumn(name="TEAM_ID")
     private Team team;
 
-    public Player() {
+    public Candidate() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
+        Candidate player = (Candidate) o;
         return Objects.equals(id, player.id) &&
                 Objects.equals(name, player.name);
     }
